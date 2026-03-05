@@ -1,25 +1,21 @@
-// JSON
 
-const todos = [{
-    id: 1,
-    description: 'Estudar JavaScript',
-    iscComplete: false,
+// While Loop
 
-},
-{
-    id: 2,
-    description: 'Fazer exercícios',
-    isComplete: false,
-},
-{
-     id: 3,
-    description: 'Ler',
-    isComplete: false,
+let index = 0;
+
+while (index < 10) {
+    console.log("Index é menor que 10:");
+    // index = index + 1;
+    // index += 1;
+    index++;
 }
-]
 
-const todosJSON = JSON.stringify(todos);
-const todosList = JSON.parse(todosJSON);
+const person = {
+    name: "John";
+    age: 20,
+};
 
-console.log(todosJSON);
-console.log(todosList);
+for (property in person) {
+    
+    console.log(person[property]);
+}
