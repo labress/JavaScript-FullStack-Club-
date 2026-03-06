@@ -1,14 +1,35 @@
+const myForm = document.querySelector('.my-form');
+const nameInput = document.querySelector('#name')
+const emailInput = document.querySelector('#email');
+const submitButton = document.querySelector('#submit-button');
 
-const items = document.querySelector(".items");
-const button = document.querySelector(".btn");
+const errorMsg = document.querySelector('.msg');
 
-items.remove();
+const items = document.querySelector('.items');
 
-// items.firstElementChild.remove();
-// items.lastElementChild.remove();
+submitButton.addEventListener("click", function(e) {
+    e.preventDefault();
 
-// items.children[0].textContent = "Item Um";
+    const nameValue = nameInput.value;
+    const emailValue = emailInput.value;
 
-// items.lastElementChild.innerHTML = "<h1>Hello World</h1>";
+    if (nameValue === "" || emailValue === "") {
+        errorMsg.textContent = "Please fill in all fields";
+        errorMsg.classList = "error";
 
-button.style.backgroundColor = "Purple";
+        setTimeout(() => {
+            errorMsg.textContent = "";
+            errorMsg.classList = "";
+        }, 3000);
+        return;
+    } 
+
+    const li = document.createElement("li");
+    li.classList = `${nameValue} : ${emailValue}`;
+    li.innerHTML = `Name: ${nameValue} <br> Email: ${emailValue}`;
+
+    items.appendChild(li);
+
+    nameInput.value = "";
+    emailInput.value = ""; 
+});
